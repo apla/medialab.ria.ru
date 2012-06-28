@@ -1,0 +1,126 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+}
+
+body {
+	padding: 100px;
+}
+
+h1 {
+	text-shadow: 0 -1px #000;
+	color: #fff;
+}
+
+p {
+	color: #fff;
+}
+
+p img {
+	margin: 10px 0;
+	border: 3px solid #fff;
+}
+
+p a {
+	color: #fff;
+	font-weight: bold;
+}
+
+.container {
+	-webkit-perspective: 1600px;
+	background: url('../images/logo-color-eng.svg') 0 -10px no-repeat;
+}
+
+.box {
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all 600ms ease-in-out;
+	width: 1024px;
+	height: 768px;
+	margin: auto;
+	position: relative;
+}
+
+.tl, .tr, .bl, .br {
+	width: 512px;
+	height: 384px;
+	position: absolute;
+	overflow: auto;
+	padding: 20px 50px;
+	-webkit-box-sizing: border-box;
+	border: 1px solid #fff;
+	-webkit-transition: all 600ms ease-in-out;
+}
+
+.tl {
+	background: rgba(146, 39, 143, 0.5);
+	left: 0;
+	top: 0;
+	-webkit-transform: rotateX(20deg);
+}
+
+.tr {
+	background: rgba(146, 39, 143, 0.4);
+	right: 0;
+	top: 0;
+	-webkit-transform: rotateX(20deg);
+}
+
+.bl {
+	background: rgba(146, 39, 143, 0.3);
+	left: 0;
+	bottom: 0;
+	-webkit-transform: rotateX(-20deg) translateY(-25px);
+}
+
+.br {
+	background: rgba(146, 39, 143, 0.2);
+	right: 0;
+	bottom: 0;
+	-webkit-transform: rotateX(-20deg) translateY(-25px);
+}
+
+#box.show-tr,
+#box.show-tl {
+	-webkit-transform: rotateX(-20deg);
+}
+
+#box.show-br,
+#box.show-bl {
+	-webkit-transform: rotateX(20deg);
+}
+
+#box.show-br .br,
+#box.show-bl .bl,
+#box.show-tr .tr,
+#box.show-tl .tl {
+	width: 900px;
+	height: 700px;
+	background: rgba(146, 39, 143, 0.7);
+	-webkit-transform: none;
+}
+
+#box.show-tl .tr {
+	width: 124px;
+	height: 700px;
+	-webkit-transform: rotateX(0deg) rotateY(20deg) scaleY(0.98)
+	    translateX(-12px);
+}
+
+#box.show-tl .br,
+#box.show-tl .bl {
+	height: 68px;
+}
+
+#box.show-tl .bl {
+	-webkit-transform: rotateX(-20deg) translateZ(-10px);
+	width: 900px;
+	height: 68px;
+}
+
+#box.show-tl .br {
+	-webkit-transform: rotateX(-20deg) rotateY(8deg)
+	    scaleX(0.88) translateZ(-20px) translateX(-5px);
+	width: 124px;
+	height: 68px;
+}

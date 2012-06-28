@@ -6,6 +6,7 @@ html, body {
 
 body {
 	padding: 100px;
+	overflow: hidden;
 }
 
 h1 {
@@ -42,7 +43,7 @@ p a {
 }
 
 .tl, .tr, .bl, .br {
-	width: 512px;
+	width: 508px;
 	height: 384px;
 	position: absolute;
 	overflow: auto;
@@ -56,71 +57,46 @@ p a {
 	background: rgba(146, 39, 143, 0.5);
 	left: 0;
 	top: 0;
-	-webkit-transform: rotateX(20deg);
+	-webkit-transform: rotateX(30deg);
 }
 
 .tr {
 	background: rgba(146, 39, 143, 0.4);
 	right: 0;
 	top: 0;
-	-webkit-transform: rotateX(20deg);
+	-webkit-transform: rotateX(30deg);
 }
 
 .bl {
 	background: rgba(146, 39, 143, 0.3);
 	left: 0;
 	bottom: 0;
-	-webkit-transform: rotateX(-20deg) translateY(-25px);
+	-webkit-transform: rotateX(-30deg) translateY(-50px);
 }
 
 .br {
 	background: rgba(146, 39, 143, 0.2);
 	right: 0;
 	bottom: 0;
-	-webkit-transform: rotateX(-20deg) translateY(-25px);
+	-webkit-transform: rotateX(-30deg) translateY(-50px);
 }
 
-#box.show-tr,
 #box.show-tl {
-	-webkit-transform: rotateX(-20deg);
+	-webkit-transform: rotateX(-15deg) scale(2)
+	    translateX(256px) translateY(192px);
 }
 
-#box.show-br,
+#box.show-tr {
+	-webkit-transform: rotateX(-15deg) scale(2)
+	    translateX(-256px) translateY(192px);
+}
+
 #box.show-bl {
-	-webkit-transform: rotateX(20deg);
+	-webkit-transform: rotateX(15deg) scale(2)
+	    translateX(256px) translateY(-192px);
 }
 
-#box.show-br .br,
-#box.show-bl .bl,
-#box.show-tr .tr,
-#box.show-tl .tl {
-	width: 900px;
-	height: 700px;
-	background: rgba(146, 39, 143, 0.7);
-	-webkit-transform: none;
-}
-
-#box.show-tl .tr {
-	width: 124px;
-	height: 700px;
-	-webkit-transform: rotateX(0deg) rotateY(20deg) scaleY(0.98)
-	    translateX(-12px);
-}
-
-#box.show-tl .br,
-#box.show-tl .bl {
-	height: 68px;
-}
-
-#box.show-tl .bl {
-	-webkit-transform: rotateX(-20deg) translateZ(-10px);
-	width: 900px;
-	height: 68px;
-}
-
-#box.show-tl .br {
-	-webkit-transform: rotateX(-20deg) rotateY(8deg)
-	    scaleX(0.88) translateZ(-20px) translateX(-5px);
-	width: 124px;
-	height: 68px;
+#box.show-br {
+	-webkit-transform: rotateX(15deg) scale(2)
+	    translateX(-256px) translateY(-192px);
 }

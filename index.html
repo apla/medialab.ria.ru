@@ -1,22 +1,25 @@
-<!DOCTYPE html>
+1;2c<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
 <body>
-	<div class="container">
-		<div class="box" id="box">
-			<div class="tl">${article1}</div>
+	<div class="box" id="impress">
+		<div class="step">${article1}</div>
 
-			<div class="tr">${article2}</div>
+		<div class="step" data-z="-3000" data-rotate-y="90">${article2}</div>
 
-			<div class="bl">${article3}</div>
+		<div class="step" data-z="-6000" data-rotate-y="180">${article3}</div>
 
-			<div class="br">${article4}</div>
-		</div>
+		<div class="step" data-z="-9000" data-rotate-y="270">${article4}</div>
 	</div>
 
 
+	<script src="js/lib/impress.js/js/impress.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

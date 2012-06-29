@@ -8,7 +8,7 @@ String.prototype.template = function (o) {
 };
 
 (function () {
-	var box = document.querySelector('#box');
+	var box = document.querySelector('#impress');
 
 	var applyTemplate = function (obj) {
 		box.innerHTML = box.innerHTML.template(obj);
@@ -16,19 +16,7 @@ String.prototype.template = function (o) {
 		var sides = box.querySelectorAll('div');
 		var prevCls;
 
-		[].forEach.call(sides, function (el) {
-			el.addEventListener('click', function () {
-				var cls = el.className;
-
-				if (prevCls !== cls) {
-					if (prevCls) {
-						box.classList.remove('show-' + prevCls);
-					}
-					box.classList.add('show-' + cls);
-					prevCls = cls;
-				}
-			}, false);
-		});
+		impress().init();
 	};
 
 	var xhr = new XMLHttpRequest();

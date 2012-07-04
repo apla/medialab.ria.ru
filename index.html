@@ -9,16 +9,29 @@
 </head>
 <body>
 	<div class="box" id="impress">
-		<div class="step">${article1}</div>
+		<div class="menu menu-1 zoomed">
+			<div class="item item-1">О нас</div>
+			<div class="item item-2">Настоящее</div>
+			<div class="item item-3">Будущее</div>
+			<div class="item item-4">Сделано</div>
+		</div>
 
-		<div class="step" data-z="-3000" data-rotate-y="90">${article2}</div>
+		<div class="menu menu-2 rotated">
+			<div class="item item-1">UI Workshop</div>
+			<div class="item item-2">Будущие медиа</div>
+			<div class="item item-3">SocialWeb</div>
+			<div class="item item-4">Круглый стол</div>
+		</div>
 
-		<div class="step" data-z="-6000" data-rotate-y="120">${article3}</div>
+		<div class="step step-1 rotated">${article1}</div>
 
-		<div class="step" data-z="-9000" data-rotate-y="180">${article4}</div>
+		<div class="step step-2 rotated">${article2}</div>
+
+		<div class="step step-3 rotated">${article3}</div>
+
+		<div class="step step-4 rotated">${article4}</div>
 	</div>
 
-	<script src="js/lib/impress.js/js/impress.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

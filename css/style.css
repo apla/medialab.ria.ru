@@ -12,33 +12,27 @@ body {
 
 h1 {
 	text-shadow: 0 -1px #000;
-	color: #999;
+	color: #fff;
 }
 
 p {
-	color: #999;
+	color: #fff;
 	font-size: 20px;
 }
 
 p img {
 	display: block;
 	margin: 10px 0;
-	border: 3px solid #999;
+	border: 3px solid #fff;
 }
 
 p a {
-	color: #999;
+	color: #fff;
 	font-weight: bold;
 }
 
-.active h1,
-.active p a,
-.active p {
-	color: #fff;
-}
-
-.active p img {
-	border-color: #fff;
+.box {
+	-webkit-perspective: 1000px;
 }
 
 .step {
@@ -49,18 +43,96 @@ p a {
 	background-image: -webkit-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
 	background-image: -ms-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
 	box-shadow: 0 -5px 10px rgba(146, 39, 143, 0.3);
-	padding: 100px;
-	width: 1024px;
-	max-height: 768px;
+	max-height: 750px;
+	width: 800px;
+	padding: 50px;
 	overflow: auto;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
+	position: absolute;
+}
+
+.item,
+.step,
+.menu {
+	-webkit-transition: all 1s ease-in;
+	-moz-transition: all 1s ease-in;
+	-o-transition: all 1s ease-in;
+	-ms-transition: all 1s ease-in;
+	transition: all 1s ease-in;
+}
+
+.menu {
+	position: absolute;
+	width: 300px;
+	opacity: 1;
+}
+
+.menu .item {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #fff;
+	margin: 10px 0;
+	color: #000;
+	padding: 10px 30px;
+	font-size: 30px;
+}
+
+.menu .active.item {
+	background-color: transparent;
+	color: #fff;
+	background-image: linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
+	background-image: -o-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
+	background-image: -moz-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
+	background-image: -webkit-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
+	background-image: -ms-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
+}
+
+.rotated {
+	-webkit-transform: rotateY(60deg) translateX(300px) translateZ(1000px);
+	opacity: 0.25;
+}
+
+.step-1.rotated {
+	-webkit-transform: rotateY(90deg) translateZ(300px) translateX(600px);
+}
+
+.step-2.rotated {
+	-webkit-transform: rotateY(90deg) translateZ(350px) translateX(650px);
+}
+
+.step-3.rotated {
+	-webkit-transform: rotateY(90deg) translateZ(400px) translateX(700px);
+}
+
+.step-4.rotated {
+	-webkit-transform: rotateY(90deg) translateZ(450px) translateX(750px);
+}
+
+.menu-1 {
+	z-index: 200;
+	margin-left: -150px;
+}
+
+.menu-2 {
+	margin-left: 100px;
+}
+
+.shaded {
+	-webkit-transform: scale(0.5);
+	left: 50px !important;
+	z-index: 10;
 	opacity: 0.5;
 }
 
-.active.step {
-	opacity: 1;
+.step {
+	left: 450px;
+}
+
+.zoomed {
+	-webkit-transform: scale(2) translateZ(1000px);
 }

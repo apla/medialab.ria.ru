@@ -8,6 +8,7 @@ body {
 	background: url('../images/logo-color-eng.svg') -250px -200px no-repeat;
 	overflow: hidden;
 	position: relative;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -108,15 +109,15 @@ p a {
 }
 
 .step-2.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(350px) translateX(-200px);
+	-webkit-transform: rotateY(100deg) translateZ(350px) translateX(-100px);
 }
 
 .step-3.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(400px) translateX(-400px);
+	-webkit-transform: rotateY(100deg) translateZ(400px) translateX(-200px);
 }
 
 .step-4.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(450px) translateX(-600px);
+	-webkit-transform: rotateY(100deg) translateZ(450px) translateX(-300px);
 }
 
 .menu-1 {

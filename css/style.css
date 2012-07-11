@@ -6,8 +6,8 @@ html, body {
 
 body {
 	background: url('../images/logo-color-eng.svg') -250px -200px no-repeat;
-	padding: 100px;
 	overflow: hidden;
+	position: relative;
 }
 
 h1 {
@@ -69,6 +69,11 @@ p a {
 	position: absolute;
 	width: 300px;
 	opacity: 1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .menu .item {
@@ -82,6 +87,7 @@ p a {
 	font-size: 30px;
 }
 
+.shaded .item-2,
 .menu .active.item {
 	background-color: transparent;
 	color: #fff;
@@ -93,24 +99,24 @@ p a {
 }
 
 .rotated {
-	-webkit-transform: rotateY(60deg) translateX(300px) translateZ(1000px);
+	-webkit-transform: rotateY(90deg) translateX(300px) translateZ(1000px);
 	opacity: 0.25;
 }
 
 .step-1.rotated {
-	-webkit-transform: rotateY(90deg) translateZ(300px) translateX(600px);
+	-webkit-transform: rotateY(100deg) translateZ(300px) translateX(0);
 }
 
 .step-2.rotated {
-	-webkit-transform: rotateY(90deg) translateZ(350px) translateX(650px);
+	-webkit-transform: rotateY(100deg) translateZ(350px) translateX(-200px);
 }
 
 .step-3.rotated {
-	-webkit-transform: rotateY(90deg) translateZ(400px) translateX(700px);
+	-webkit-transform: rotateY(100deg) translateZ(400px) translateX(-400px);
 }
 
 .step-4.rotated {
-	-webkit-transform: rotateY(90deg) translateZ(450px) translateX(750px);
+	-webkit-transform: rotateY(100deg) translateZ(450px) translateX(-600px);
 }
 
 .menu-1 {
@@ -124,15 +130,21 @@ p a {
 
 .shaded {
 	-webkit-transform: scale(0.5);
-	left: 50px !important;
+	left: 100px !important;
 	z-index: 10;
 	opacity: 0.5;
 }
 
 .step {
+	top: 100px;
 	left: 450px;
+	border: 2px solid #fff;
 }
 
 .zoomed {
 	-webkit-transform: scale(2) translateZ(1000px);
+}
+
+.initial .step {
+	opacity: 0;
 }

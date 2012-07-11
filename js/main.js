@@ -21,16 +21,26 @@ String.prototype.template = function (o) {
 		var defClick;
 		var shaded = true;
 
-		menu1.style.left = ~~(menu1.offsetParent.clientWidth / 2) + 'px';
+		menu1.style.left = ~~(document.documentElement.clientWidth / 2) + 'px';
+		menu1.style.top = ~~(document.documentElement.clientHeight / 2) + 'px';
+		menu1.style.marginTop = -~~(menu1.offsetHeight / 2) + 'px';
+
+		menu2.style.top = ~~(document.documentElement.clientHeight / 2) + 'px';
+		menu2.style.marginTop = -~~(menu2.offsetHeight / 2) + 'px';
+
 		menu1.classList.remove('zoomed');
 
 		menu1.addEventListener('click', function (e) {
 			if (shaded) {
+				document.body.classList.remove('initial');
+
 				menu1.classList.add('shaded');
 				menu2.classList.remove('rotated');
 
 				defClick();
 			} else {
+				document.body.classList.add('initial');
+
 				menu1.classList.remove('shaded');
 				menu2.classList.add('rotated');
 
@@ -60,13 +70,22 @@ String.prototype.template = function (o) {
 					currentItem.classList.add('active');
 				};
 
-				el.addEventListener('click', onClick, false);
+				if (steps[i]) {
+					el.addEventListener('click', onClick, false);
 
-				if (0 == i) {
-					defClick = onClick;
+					if (0 == i) {
+						defClick = onClick;
+					}
 				}
 			}
 		);
+
+		var top = 100;
+		var maxHeight = document.documentElement.clientHeight - top * 2;
+		[].forEach.call(steps, function (el) {
+			el.style.maxHeight = maxHeight + 'px';
+			el.style.top = top + 'px';
+		});
 	};
 
 	var applyTemplate = function (obj) {

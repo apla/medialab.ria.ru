@@ -7,92 +7,77 @@ String.prototype.template = function (o) {
     );
 };
 
+function scrollTo(tab) {
+	var hash = tab.hash;
+	var panel = document.querySelector(hash);
+
+	if (panel) {
+		var box = panel.getBoundingClientRect();
+		var body = document.body;
+		var center = ~~((body.offsetWidth - panel.offsetWidth) / 2);
+		var offset = box.left - center;
+
+		var scrollLeft = body.scrollLeft;
+
+		animate(body, {
+			styles: {
+				scrollLeft: {
+					start: scrollLeft,
+					end: scrollLeft + offset
+				},
+
+				scrollTop: {
+					start: body.scrollTop,
+					end: 0
+				}
+			},
+			easing: 'easeInQuad',
+			duration: 1000,
+			callback: function () { console.log('Animation stopped'); }
+		});
+	}
+}
+
+function initTabs(el, selector, callback, cls) {
+	cls = cls || 'selected';
+	var currentTab = null;
+
+	var onSelect = function (tab) {
+		currentTab && currentTab.classList.remove(cls);
+		currentTab = tab;
+		currentTab.classList.add(cls);
+		callback(tab);
+	};
+
+	var matches = function (el, selector) {
+		var match = el.matchesSelector ||
+			el.webkitMatchesSelector ||
+			el.mozMatchesSelector ||
+			el.oMatchesSelector ||
+			el.msMatchesSelector;
+
+		return match.call(el, selector);
+	};
+
+	el.addEventListener('click', function (e) {
+		if (1 != e.which) { return; }
+
+		if (matches(e.target, selector) && currentTab !== e.target) {
+			onSelect(e.target);
+			e.preventDefault();
+		}
+	}, false);
+
+	var tabs = el.querySelectorAll(selector);
+	var middle = tabs[~~(tabs.length / 2)];
+	onSelect(middle);
+}
+
 (function () {
 	var box = document.querySelector('#impress');
 
-	var init = function () {
-		var steps = box.querySelectorAll('.step');
-		var menus = box.querySelectorAll('.menu');
-		var menu1 = menus[0];
-		var menu2 = menus[1];
-
-		var currentStep;
-		var currentItem;
-		var defClick;
-		var shaded = true;
-
-		menu1.style.left = ~~(document.documentElement.clientWidth / 2) + 'px';
-		menu1.style.top = ~~(document.documentElement.clientHeight / 2) + 'px';
-		menu1.style.marginTop = -~~(menu1.offsetHeight / 2) + 'px';
-
-		menu2.style.top = ~~(document.documentElement.clientHeight / 2) + 'px';
-		menu2.style.marginTop = -~~(menu2.offsetHeight / 2) + 'px';
-
-		menu1.classList.remove('zoomed');
-
-		menu1.addEventListener('click', function (e) {
-			if (shaded) {
-				document.body.classList.remove('initial');
-
-				menu1.classList.add('shaded');
-				menu2.classList.remove('rotated');
-
-				defClick();
-			} else {
-				document.body.classList.add('initial');
-
-				menu1.classList.remove('shaded');
-				menu2.classList.add('rotated');
-
-				currentStep.classList.add('rotated');
-				currentItem.classList.remove('active');
-				currentStep = null;
-				currentItem = null;
-			}
-
-			shaded = !shaded;
-		}, false);
-
-		[].forEach.call(
-			menu2.querySelectorAll('.item'),
-			function (el, i, items) {
-				var onClick = function (e) {
-					if (currentStep) {
-						currentStep.classList.add('rotated');
-					}
-					currentStep = steps[i];
-					currentStep.classList.remove('rotated');
-
-					if (currentItem) {
-						currentItem.classList.remove('active');
-					}
-					currentItem = items[i];
-					currentItem.classList.add('active');
-				};
-
-				if (steps[i]) {
-					el.addEventListener('click', onClick, false);
-
-					if (0 == i) {
-						defClick = onClick;
-					}
-				}
-			}
-		);
-
-		var top = 100;
-		var maxHeight = document.documentElement.clientHeight - top * 2;
-		[].forEach.call(steps, function (el) {
-			el.style.maxHeight = maxHeight + 'px';
-			el.style.top = top + 'px';
-		});
-	};
-
-	var applyTemplate = function (obj) {
-		box.innerHTML = box.innerHTML.template(obj);
-
-		var sides = box.querySelectorAll('div');
-		var prevCls;
+	var applyTemplate = function (el, data) {
+		el.innerHTML = el.innerHTML.template(data);
 	};
 
 	var xhr = new XMLHttpRequest();
@@ -100,8 +85,8 @@ String.prototype.template = function (o) {
 	xhr.addEventListener('load', function () {
 		var resp = xhr.responseText;
 		var json = JSON.parse(resp);
-		applyTemplate(json);
-		init();
+		applyTemplate(box, json);
+		initTabs(document, 'a[href^="#"]', scrollTo);
 	});
 	xhr.send();
 }());

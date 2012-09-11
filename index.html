@@ -11,30 +11,33 @@
 		  rel="stylesheet" />
 </head>
 <body class="initial">
-	<div class="box" id="impress">
-		<div class="menu menu-1 zoomed">
-			<div class="item item-1">О нас</div>
-			<div class="item item-2">Настоящее</div>
-			<div class="item item-3">Будущее</div>
-			<div class="item item-4">Сделано</div>
-		</div>
-
-		<div class="menu menu-2 rotated">
-			<div class="item item-1">UI Workshop</div>
-			<div class="item item-2">Будущие медиа</div>
-			<div class="item item-3">SocialWeb</div>
-			<div class="item item-4">Круглый стол</div>
-		</div>
-
-		<div class="step step-1 rotated">${article1}</div>
-
-		<div class="step step-2 rotated">${article2}</div>
-
-		<div class="step step-3 rotated">${article3}</div>
-
-		<div class="step step-4 rotated">${article4}</div>
+	<div class="menu">
+		<a href="#p1">Внутри нас</a>
+		<a href="#p2">О нас</a>
+		<a href="#p3">Вокруг нас</a>
 	</div>
 
+	<div class="box" id="impress">
+		<div class="panel panel-1" id="p1">
+			<h1>Внутри нас</h1>
+			<div class="article">${article1}</div>
+		</div>
+
+		<div class="panel panel-2" id="p2">
+			<h1>О нас</h1>
+
+			<div class="article">${article2}</div>
+			<div class="article">${article4}</div>
+		</div>
+
+		<div class="panel panel-3" id="p3">
+			<h1>Вокруг нас</h1>
+
+			<div class="article">${article3}</div>
+		</div>
+	</div>
+
+	<script src="js/lib/animation.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

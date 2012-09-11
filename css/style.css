@@ -1,151 +1,62 @@
 html, body {
+	font-size: 18px;
+	font-family: 'Open Sans', sans-serif;
+	background: #fff;
+	color: #333;
 	margin: 0;
 	padding: 0;
-	background: #000;
 }
 
 body {
-	background: url('../images/logo-color-eng.svg') -250px -200px no-repeat;
-	overflow: hidden;
-	position: relative;
-	font-family: 'Open Sans', sans-serif;
+	overflow: auto;
 }
 
-h1 {
-	text-shadow: 0 -1px #000;
-	color: #fff;
+.menu {
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 1px 4px #999;
 }
 
-p {
-	color: #fff;
-	font-size: 20px;
+.menu a {
+	font-size: 24px;
+	display: inline-block;
+	margin: 0 10%;
+	padding: 0 5px;
+	background: #fff;
+	color: navy;
+	-webkit-transition: all 600ms linear;
 }
 
-p img {
-	display: block;
-	margin: 10px 0;
-	border: 3px solid #fff;
+.menu a:hover {
+	text-decoration: none;
 }
 
-p a {
-	color: #fff;
-	font-weight: bold;
+.menu a.selected {
+	text-decoration: none;
+	background: #ffffaa;
 }
 
 .box {
-	-webkit-perspective: 1000px;
+	padding: 100px;
+	width: 200%;
+	text-align: center;
 }
 
-.step {
-	/*background: rgba(146, 39, 143, 0.3);*/
-	background-image: linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -o-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -moz-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -webkit-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -ms-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	box-shadow: 0 -5px 10px rgba(146, 39, 143, 0.3);
-	max-height: 750px;
-	width: 800px;
+.panel {
+	-webkit-box-sizing: border-box;
 	padding: 50px;
-	overflow: auto;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-	position: absolute;
+	width: 30%;
+	margin: 0 1%;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	box-shadow: 0 1px 4px #333;
+	border-radius: 2px;
 }
 
-.item,
-.step,
-.menu {
-	-webkit-transition: all 1s ease-in;
-	-moz-transition: all 1s ease-in;
-	-o-transition: all 1s ease-in;
-	-ms-transition: all 1s ease-in;
-	transition: all 1s ease-in;
-}
-
-.menu {
-	position: absolute;
-	width: 300px;
-	opacity: 1;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.menu .item {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	background: #fff;
-	margin: 10px 0;
-	color: #000;
-	padding: 10px 30px;
-	font-size: 30px;
-}
-
-.shaded .item-2,
-.menu .active.item {
-	background-color: transparent;
-	color: #fff;
-	background-image: linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -o-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -moz-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -webkit-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-	background-image: -ms-linear-gradient(bottom, rgba(146,39,142, 0.1) 38%, rgba(146,39,142, 0.3) 85%);
-}
-
-.rotated {
-	-webkit-transform: rotateY(90deg) translateX(300px) translateZ(1000px);
-	opacity: 0.25;
-}
-
-.step-1.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(300px) translateX(0);
-}
-
-.step-2.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(350px) translateX(-100px);
-}
-
-.step-3.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(400px) translateX(-200px);
-}
-
-.step-4.rotated {
-	-webkit-transform: rotateY(100deg) translateZ(450px) translateX(-300px);
-}
-
-.menu-1 {
-	z-index: 200;
-	margin-left: -150px;
-}
-
-.menu-2 {
-	margin-left: 100px;
-}
-
-.shaded {
-	-webkit-transform: scale(0.5);
-	left: 100px !important;
-	z-index: 10;
-	opacity: 0.5;
-}
-
-.step {
-	top: 100px;
-	left: 450px;
-	border: 2px solid #fff;
-}
-
-.zoomed {
-	-webkit-transform: scale(2) translateZ(1000px);
-}
-
-.initial .step {
-	opacity: 0;
+.panel img {
+	margin: 10px;
 }

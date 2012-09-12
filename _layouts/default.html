@@ -21,7 +21,7 @@
 
 	<div class="box" id="impress">
 		<section class="panel panel-1" id="p1">
-			{% for post in site.inside_us %}
+			{% for post in site.categories.inside_us %}
 		    <article class="article">
 				<h1>{{ post.title }}</h1>
 				{{ post.content }}
@@ -32,7 +32,7 @@
 		<section class="panel panel-2" id="p2">
 			<h1>О нас</h1>
 
-			{% for post in site.about_us %}
+			{% for post in site.categories.about_us %}
 		    <article class="article">
 				<h1>{{ post.title }}</h1>
 
@@ -44,7 +44,7 @@
 		<section class="panel panel-3" id="p3">
 			<h1>Вокруг нас</h1>
 
-			{% for post in site.around_us %}
+			{% for post in site.categories.around_us %}
 		    <article class="article">
 				<h1>{{ post.title }}</h1>
 

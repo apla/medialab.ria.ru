@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+	<title>Медиалаборатория РИА Новости</title>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta name="viewport" content="width=1024" />
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold" rel="stylesheet" />
+</head>
+
+<body class="initial">
+	<div class="menu">
+		<a href="/#p1">Внутри нас</a>
+		<a href="/#p2">О нас</a>
+		<a href="/#p3">Вокруг нас</a>
+	</div>
+
+	<div class="box" id="impress">
+		<div class="panel panel-1" id="p1">
+			<h1>Внутри нас</h1>
+
+			{% for post in site.inside_us %}
+		    <div class="article">
+				{% post.content %}
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="panel panel-2" id="p2">
+			<h1>О нас</h1>
+
+			{% for post in site.about_us %}
+		    <div class="article">
+				{% post.content %}
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="panel panel-3" id="p3">
+			<h1>Вокруг нас</h1>
+
+			{% for post in site.around_us %}
+		    <div class="article">
+				{% post.content %}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<script src="js/lib/animation.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

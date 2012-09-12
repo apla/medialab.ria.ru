@@ -1,92 +1,71 @@
-"use strict";
-
-String.prototype.template = function (o) {
-    return this.replace(
-        /\${(.+?)}/g,
-        function (_, k) { return o[k]; }
-    );
-};
-
-function scrollTo(tab) {
-	var hash = tab.hash;
-	var panel = document.querySelector(hash);
-
-	if (panel) {
-		var box = panel.getBoundingClientRect();
-		var body = document.body;
-		var center = ~~((body.offsetWidth - panel.offsetWidth) / 2);
-		var offset = box.left - center;
-
-		var scrollLeft = body.scrollLeft;
-
-		animate(body, {
-			styles: {
-				scrollLeft: {
-					start: scrollLeft,
-					end: scrollLeft + offset
-				},
-
-				scrollTop: {
-					start: body.scrollTop,
-					end: 0
-				}
-			},
-			easing: 'easeInQuad',
-			duration: 1000,
-			callback: function () { console.log('Animation stopped'); }
-		});
-	}
-}
-
-function initTabs(el, selector, callback, cls) {
-	cls = cls || 'selected';
-	var currentTab = null;
-
-	var onSelect = function (tab) {
-		currentTab && currentTab.classList.remove(cls);
-		currentTab = tab;
-		currentTab.classList.add(cls);
-		callback(tab);
-	};
-
-	var matches = function (el, selector) {
-		var match = el.matchesSelector ||
-			el.webkitMatchesSelector ||
-			el.mozMatchesSelector ||
-			el.oMatchesSelector ||
-			el.msMatchesSelector;
-
-		return match.call(el, selector);
-	};
-
-	el.addEventListener('click', function (e) {
-		if (1 != e.which) { return; }
-
-		if (matches(e.target, selector) && currentTab !== e.target) {
-			onSelect(e.target);
-			e.preventDefault();
-		}
-	}, false);
-
-	var tabs = el.querySelectorAll(selector);
-	var middle = tabs[~~(tabs.length / 2)];
-	onSelect(middle);
-}
-
 (function () {
-	var box = document.querySelector('#impress');
+	"use strict";
 
-	var applyTemplate = function (el, data) {
-		el.innerHTML = el.innerHTML.template(data);
-	};
+	function scrollTo(tab) {
+		var hash = tab.hash;
+		var panel = document.querySelector(hash);
 
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'data/articles.json', true);
-	xhr.addEventListener('load', function () {
-		var resp = xhr.responseText;
-		var json = JSON.parse(resp);
-		applyTemplate(box, json);
-		initTabs(document, 'a[href^="#"]', scrollTo);
-	});
-	xhr.send();
+		if (panel) {
+			var box = panel.getBoundingClientRect();
+			var body = document.body;
+			var center = ~~((body.offsetWidth - panel.offsetWidth) / 2);
+			var offset = box.left - center;
+
+			var scrollLeft = body.scrollLeft;
+
+			animate(body, {
+				styles: {
+					scrollLeft: {
+						start: scrollLeft,
+						end: scrollLeft + offset
+					},
+
+					scrollTop: {
+						start: body.scrollTop,
+						end: 0
+					}
+				},
+				easing: 'easeInQuad',
+				duration: 1000,
+				callback: function () { console.log('Animation stopped'); }
+			});
+		}
+	}
+
+	function initTabs(el, selector, callback, cls) {
+		cls = cls || 'selected';
+		var currentTab = null;
+
+		var onSelect = function (tab) {
+			currentTab && currentTab.classList.remove(cls);
+			currentTab = tab;
+			currentTab.classList.add(cls);
+			callback(tab);
+		};
+
+		var matches = function (el, selector) {
+			var match = el.matchesSelector ||
+					el.webkitMatchesSelector ||
+					el.mozMatchesSelector ||
+					el.oMatchesSelector ||
+					el.msMatchesSelector;
+
+			return match.call(el, selector);
+		};
+
+		el.addEventListener('click', function (e) {
+			if (1 != e.which) { return; }
+
+			if (matches(e.target, selector) && currentTab !== e.target) {
+				onSelect(e.target);
+				e.preventDefault();
+			}
+		}, false);
+
+		var tabs = el.querySelectorAll(selector);
+		var middle = tabs[~~(tabs.length / 2)];
+		onSelect(middle);
+	}
+
+	initTabs(document, 'a[href^="/#"]', scrollTo);
 }());

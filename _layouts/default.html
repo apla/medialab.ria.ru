@@ -30,8 +30,6 @@
 		</section>
 
 		<section class="panel panel-2" id="p2">
-			<h1>О нас</h1>
-
 			{% for post in site.categories.about_us %}
 		    <article class="article">
 				<h1>{{ post.title }}</h1>
@@ -42,8 +40,6 @@
 		</section>
 
 		<section class="panel panel-3" id="p3">
-			<h1>Вокруг нас</h1>
-
 			{% for post in site.categories.around_us %}
 		    <article class="article">
 				<h1>{{ post.title }}</h1>
@@ -56,8 +52,6 @@
 
 	<script src="js/lib/animation.js"></script>
 	<script src="js/main.js"></script>
-
-	<audio src="http://indierockcafe.com/pl/off-mac-dec10/SPRINGMix/SPRINGMix/03%20Springtime.mp3" autoplay="true" loop="true"></audio>
 </body>
 
 </html>

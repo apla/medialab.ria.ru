@@ -20,35 +20,38 @@
 	</div>
 
 	<div class="box" id="impress">
-		<div class="panel panel-1" id="p1">
-			<h1>Внутри нас</h1>
-
+		<section class="panel panel-1" id="p1">
 			{% for post in site.inside_us %}
-		    <div class="article">
+		    <article class="article">
+				<h1>{{ post.title }}</h1>
 				{{ post.content }}
-			</div>
+			</article>
 			{% endfor %}
-		</div>
+		</section>
 
-		<div class="panel panel-2" id="p2">
+		<section class="panel panel-2" id="p2">
 			<h1>О нас</h1>
 
 			{% for post in site.about_us %}
-		    <div class="article">
-				{{ post.content }}
-			</div>
-			{% endfor %}
-		</div>
+		    <article class="article">
+				<h1>{{ post.title }}</h1>
 
-		<div class="panel panel-3" id="p3">
+				{{ post.content }}
+			</article>
+			{% endfor %}
+		</section>
+
+		<section class="panel panel-3" id="p3">
 			<h1>Вокруг нас</h1>
 
 			{% for post in site.around_us %}
-		    <div class="article">
+		    <article class="article">
+				<h1>{{ post.title }}</h1>
+
 				{{ post.content }}
-			</div>
+			</article>
 			{% endfor %}
-		</div>
+		</section>
 	</div>
 
 	<script src="js/lib/animation.js"></script>

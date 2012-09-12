@@ -1,3 +1,7 @@
+---
+title: UI workshop
+category: inside_us
+---
 Вчера и сегодня проект МедиаЛаб Коллаборатория проводил вокшоп по UI&UX
 проекта с известным экспертом [Dale Herigstad](http://www.possibleworldwide.com/tag/dale-herigstad).
 

@@ -8,7 +8,7 @@
 		if (panel) {
 			var box = panel.getBoundingClientRect();
 			var body = document.body;
-			var center = ~~((body.offsetWidth - panel.offsetWidth) / 2);
+			var center = ~~((body.offsetWidth - box.width) / 2);
 			var offset = box.left - center;
 
 			var scrollLeft = body.scrollLeft;
@@ -45,10 +45,10 @@
 
 		var matches = function (el, selector) {
 			var match = el.matchesSelector ||
-					el.webkitMatchesSelector ||
-					el.mozMatchesSelector ||
-					el.oMatchesSelector ||
-					el.msMatchesSelector;
+				el.webkitMatchesSelector ||
+				el.mozMatchesSelector ||
+				el.oMatchesSelector ||
+				el.msMatchesSelector;
 
 			return match.call(el, selector);
 		};
